@@ -1,1 +1,245 @@
+$bg-color: #4B4345;
+$border-color: #2F3131;
+$green: #89DA59;
+$red: #FF420E;
+$blue: #4897D8;
+$yellow: #FFDB5C;
+$inner-circle: white;
+$button-borders: 3px solid black;
 
+@mixin button($diameter, $color) {
+  height: $diameter;
+  width: $diameter;
+  border-radius: 50%;
+  background-color: $color;
+  border: $button-borders;
+}
+
+html {
+  font-size: 100%;
+}
+
+body {
+  background-color: $bg-color;
+  @media (min-width: 450px) {
+    font-size: 110%;
+  }
+  @media (min-width: 600px) {
+    font-size: 110%;
+  }
+  @media (min-width: 768px) {
+    font-size: 110%;
+  }
+  @media (min-width: 1024px) {
+    font-size: 115%;
+  }
+  @media (min-width: 1600px) {
+    font-size: 150%;
+  }
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.outer-circle {
+  background-color: $border-color;
+  // width: 500px;
+  // height: 500px;
+  width: 80vw;
+  height: 80vw;
+
+  @media(min-width: 600px) {
+    width: 50vw;
+    height: 50vw;
+  }
+  @media (min-width: 768px) {
+    width: 65vw;
+    height: 65vw;
+  }
+  @media (min-width: 1024px) {
+    width: 60vw;
+    height: 60vw;
+  }
+  @media(min-width: 1200px) {
+    width: 50vw;
+    height: 50vw;
+  }
+  border-radius: 50%;
+  margin: 2.5% auto;
+  position: relative;
+
+}
+
+.colorButton {
+  width: 42.5%;
+  height: 42.5%;
+  position: absolute;
+}
+
+#green {
+  background-color: $green;
+  border-radius: 100% 0 0 0;
+  top: 5%;
+  left: 5%;
+}
+
+#red {
+  background-color: $red;
+  border-radius: 0 100% 0 0;
+  top: 5%;
+  right: 5%;
+}
+
+#yellow {
+  background-color: $yellow;
+  border-radius: 0 0 0 100%;
+  bottom: 5%;
+  left: 5%;
+}
+
+#blue {
+  background-color: $blue;
+  border-radius: 0 0 100% 0;
+  bottom: 5%;
+  right: 5%;
+}
+
+.inner-circle {
+  width: 40%;
+  height: 40%;
+  background-color: $inner-circle;
+  border-radius: 50%;
+  position: absolute;
+  left: 30%;
+  top: 30%;
+  border: 1.5vw solid $border-color;
+  box-sizing:border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  h2 {
+    font-size: 1.5em;
+    font-family: 'Bevan';
+  }
+  .count-box {
+    .count-display {
+      border: $button-borders;
+      border-radius: 5px;
+      background-color: #1E0000;
+      color: #E1315B;
+      text-align: center;
+    }
+  }
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  color: #ccc;
+
+  .power-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50vw;
+
+    /* The switch - the box around the slider */
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 60px;
+      height: 29px;
+      margin: 1rem 1rem;
+    }
+
+    /* Hide default HTML checkbox */
+    .switch input {display:none;}
+
+    /* The slider */
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      -webkit-transition: .4s;
+      transition: .4s;
+      // border: $button-borders;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 25px;
+      width: 25px;
+      left: 2px;
+      bottom: 2px;
+      background-color: white;
+      -webkit-transition: .4s;
+      transition: .4s;
+      border: $button-borders;
+    }
+
+    input:checked + .slider {
+      background-color: #ccc;
+    }
+
+    input:focus + .slider {
+      box-shadow: 0 0 1px #2196F3;
+    }
+
+    input:checked + .slider:before {
+      -webkit-transform: translateX(31px);
+      -ms-transform: translateX(31px);
+      transform: translateX(31px);
+    }
+
+    /* Rounded sliders */
+    .slider.round {
+      border-radius: 34px;
+    }
+
+    .slider.round:before {
+      border-radius: 50%;
+    }
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+
+    .start-box {
+      margin-right: 0.5rem;
+      .start-button {
+        @include button((25px), #FF0000);
+        &:active {
+          opacity: 0.5;
+        }
+      }
+    }
+
+    .strict-box {
+      margin-left: 0.5rem;
+      .strict-button {
+        @include button(25px, #EFB509);
+        &:active {
+          opacity: 0.5;
+        }
+      }
+    }
+  }
+
+}
+.footer {
+  color: white;
+}
