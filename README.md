@@ -1,4 +1,4 @@
-# Build a Simon game
+# Build a Simon game ([Demo](https://react-simon-drhectapus.herokuapp.com/))
 
 Front-end project from FreeCodeCamp.
 
